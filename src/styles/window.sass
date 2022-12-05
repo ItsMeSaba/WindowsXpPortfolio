@@ -1,0 +1,125 @@
+
+.window
+    position: absolute
+    top: 1vw
+    left: 20vw
+    // border: solid 1px red
+    // height: 45rem
+    height: 90vh
+    width: 70rem
+    // position: relative
+    // border: solid 6px #005bef
+    border: solid 7px #1f6be7
+    border-top: none
+    overflow: hidden
+    border-radius: 5px
+    // box-shadow: 
+    display: grid
+    grid-template-rows: min-content min-content min-content min-content auto
+
+    .topHeader
+        padding: .7rem 1rem
+        background-color: #005bef
+        display: flex
+        align-items: center
+        justify-content: space-between
+        color: white
+        box-shadow: 0 6px 4px rgb(255, 255, 255, .3) inset, 0 -15px 15px rgb(0, 0, 0, .1) inset
+        font-size: 1.1rem
+
+        .windowInfo
+            display: flex
+            align-items: center
+            
+            p
+                text-shadow: 2px 2px 2px black
+
+            .folderIcon
+                display: flex
+                align-items: center
+                width: 1.3rem
+                margin: 0 .5rem 0 0
+
+                img
+                    width: 100%
+        
+        .buttons
+            img
+                width: 1.5rem
+                margin: 0 .2rem
+    
+    .settings
+        display: flex
+        padding: .5rem 0
+        background-color: rgb(241, 240, 233)
+        border-bottom: solid 1px rgb(217, 211, 190)
+
+        p
+            padding: 0 .8rem
+
+    .controlls
+        display: flex
+        align-items: center
+        background-color: rgb(241, 240, 233)
+        padding: .5rem 0
+        
+        .backDiv, .frontDiv
+            margin: 0 1rem
+            display: flex
+            align-items: center
+
+            img
+                margin: 0 1rem 0 0
+                width: 2rem
+
+        .frontDiv
+            margin: 0 0 0 2rem
+            border-right: solid 1px rgb(217, 211, 190)
+
+    .address
+        background-color: rgb(241, 240, 233)
+        display: flex
+        align-items: center
+        padding: .5rem
+
+        p
+            color: rgb(140, 140, 140)
+
+        .inputBar
+            display: flex
+            margin: 0 1rem
+            background-color: white
+            border: solid 1px rgb(143, 170, 194)
+            padding: .2rem .8rem
+            width: 100%
+            
+            p
+                color: black
+
+            img
+                margin: 0 .5rem 0 0
+                width: 1.2rem
+
+        .goButton
+            display: flex
+            align-items: center
+
+            img
+                width: 1.65rem        
+
+    .windowBody
+        background-color: white
+        padding: 1rem
+        width: 100%
+        overflow-y: scroll
+        
+        &::-webkit-scrollbar
+            // display: none
+            // background-color: red
+            display: block
+
+        &::-webkit-scrollbar-thumb
+            background-color: #c2d3fc
+            border-radius: 2px
+            border: solid 1px white
+            position: relative
