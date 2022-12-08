@@ -25,8 +25,6 @@ export default function Bar(args: Args) {
                 {
                     barItems.map(item => (
                         <div className="barItem" onClick={item.onClick}>
-                        {/* // <div className="barItem" onClick={() => item.isMinimized ? item.unMinimize() : item.minimize()}> */}
-                        {/* // <div className="barItem" onClick={() => item.setter((settings: any) => settings.isMinimized ? settings.unMinimize() : settings.minimize())}> */}
                             <img src={folder} alt="" />
                 
                             <p>{ item.header }</p>

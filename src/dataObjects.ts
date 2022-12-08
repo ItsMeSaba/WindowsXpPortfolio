@@ -7,29 +7,50 @@ export interface WindowSettings {
 	previousPage: null | string,
     isMinimized: boolean,
     currentPage: string,
+    highestZindex: React.MutableRefObject<number>,
+    zIndex: number,
     open: () => any,
     minimize: () => any,
     unMinimize: () => any,
     close: () => any,
+    setZindex: () => any
     setPath: (newPath: string) => any,
 }
 
-export const projectsWindowSettings = (): WindowSettings => ({
+interface ProjectsWindowSettingsArgs {
+    id: string,
+    header: string,
+    highestZindex: React.MutableRefObject<number>,
+}
+
+export const projectsWindowSettings = (args: ProjectsWindowSettingsArgs): WindowSettings => ({
 	isOpened: false,
     isMinimized: false,
-	header: "Projects",
+	header: args.header,
 	path: "projects/",
-	id: "projectsWindow",
+	id: args.id,
     currentPage: "index",
 	previousPage: null,
+    zIndex: 1,
+    highestZindex: args.highestZindex,
+    setZindex: function() {
+        // console.log()
+        this.highestZindex.current++;
+
+        return ({ ...this, zIndex: this.highestZindex.current })
+    },
     open: function() {
-        return ({ ...this, isOpened: true, isMinimized: false })
+        this.highestZindex.current++;
+
+        return ({ ...this, isOpened: true, isMinimized: false, zIndex: this.highestZindex.current })
     },
     minimize: function() {
         return ({ ...this, isMinimized: true });
     },
     unMinimize: function() {
-        return ({ ...this, isMinimized: false });
+        this.highestZindex.current++;
+
+        return ({ ...this, isMinimized: false, zIndex: this.highestZindex.current });
     }, 
     close: function() {
         return ({ ...this, isOpened: false });

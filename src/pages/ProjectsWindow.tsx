@@ -18,7 +18,7 @@ export default function ProjectsWindow(args: Args) {
     const [currentProject, setCurrentProject] = useState("");
 
     return (
-        <Window settings={settings} setSettings={setSettings}>
+        <Window settings={settings} setSettings={setSettings} onBack={() => setCurrentProject("")}>
             { !currentProject &&
                 <Projects setCurrentProject={setCurrentProject} />
             }

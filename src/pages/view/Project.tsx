@@ -8,15 +8,15 @@ interface Args {
 
 export default function Project(args: Args) {
     const { projectName } = args;
-    const { description, images, name, technologies } = projects[projectName];
+    const { description, images, name, technologies, github, visit } = projects[projectName];
 
     return (
         <div className="project">
             <div className="header">
                 <h1>{ name }</h1>
 
-                <div className="button">Visit</div>
-                <div className="button">Github</div>
+                { visit && <a className="button" href={visit} target="_blank" rel="noreferrer">Visit</a> }
+                { github && <a className="button" href={github} target="_blank" rel="noreferrer">Github</a> }
             </div>
 
             <p className="description">{ description }</p>

@@ -1,11 +1,17 @@
 import "../styles/desktop.sass"
+import { useContext } from 'react';
+import { GlobalContext } from "../context";
+import { WindowSettings } from "../dataObjects";
+
 import desktop from "../images/icons/desktop.ico";
 import explorer from "../images/icons/explorer.ico";
 import folder from "../images/icons/folder.ico";
+import file from "../images/icons/file.ico";
 import adobeFile from "../images/icons/adobeFile.png";
+import contact from "../images/icons/contact.ico";
 import Window from "./Window";
-import { useContext } from 'react';
-import { GlobalContext } from "../context";
+import AboutMeWindow from "../pages/AboutMeWindow";
+// import file from "../../public/sabaSilagadze.pdf"
 
 interface Args {
     // openProjectsWindow: () => void,
@@ -13,27 +19,54 @@ interface Args {
 
 
 export default function Desktop(args: Args) {
-    const { setProjectsWindow, projectsWindow, setBarItems } = useContext(GlobalContext);
+    const { 
+        setProjectsWindow, 
+        projectsWindow, 
+        setWorkExperienceWindow, 
+        workExperienceWindow, 
+        setBarItems, 
+        aboutMeWindow, 
+        setAboutMeWindow,
+        contactWindow,
+        setContactWindow 
+    } = useContext(GlobalContext);
 
 
-    const openProjectsWindow = () => {     
-        setProjectsWindow(settings => {
+    const openProjectsWindow = (state: WindowSettings, setState: React.Dispatch<React.SetStateAction<WindowSettings>>) => {     
+        setState(settings => {
             return settings.isOpened ? settings.unMinimize() : settings.open();
         });
 
-        if (!projectsWindow.isOpened) setBarItems(items => [...items, {
-            id: projectsWindow.id,
-            header: projectsWindow.header,
-            onClick: () => setProjectsWindow(settings => settings.isMinimized ? settings.unMinimize() : settings.minimize())
+        if (!state.isOpened) setBarItems(items => [...items, {
+            id: state.id,
+            header: state.header,
+            onClick: () => setState(settings => settings.isMinimized ? settings.unMinimize() : settings.minimize())
         }])
     }
 
+    {/* <DesktopItem image={desktop} text="My Computer" />
+    <DesktopItem image={explorer} text="Internet Explorer" /> */}
+
     return (
         <div className="desktop">
-            <DesktopItem image={desktop} text="My Computer" />
-            <DesktopItem image={explorer} text="Internet Explorer" />
-            <DesktopItem image={folder} text="My Projects" onDoubleClick={openProjectsWindow} />
-            <DesktopItem image={adobeFile} text="CV" />
+            <div className="column">
+                <DesktopItem image={folder} text="My Projects" onDoubleClick={() => openProjectsWindow(projectsWindow, setProjectsWindow)} />
+                <DesktopItem image={folder} text="Work Experience" onDoubleClick={() => openProjectsWindow(workExperienceWindow, setWorkExperienceWindow)} />
+                {/* <DesktopItem image={adobeFile} text="CV" onDoubleClick={() => fetch("../../public/sabaSilagadze.pdf")} /> */}
+                <a className="desktopItem" href="../../public/sabaSilagadze.pdf" target="_blank" download>
+                    <img src={adobeFile} />
+
+                    <p>Cv</p>
+                </a>
+            </div>
+
+            <div className="column">
+                <DesktopItem image={file} text="About Me" onDoubleClick={() => openProjectsWindow(aboutMeWindow, setAboutMeWindow)} />
+            </div>
+
+            <div className="column">
+                <DesktopItem image={explorer} text="Contact" onDoubleClick={() => openProjectsWindow(contactWindow, setContactWindow)} />
+            </div>
         </div>
     )
 }

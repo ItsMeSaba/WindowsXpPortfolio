@@ -2,11 +2,12 @@
 .window
     position: absolute
     top: 1vw
-    left: 20vw
+    left: 15vw
     // border: solid 1px red
     // height: 45rem
     height: 90vh
-    width: 70rem
+    // width: 80rem
+    width: 70vw
     // position: relative
     // border: solid 6px #005bef
     border: solid 7px #1f6be7
@@ -44,9 +45,14 @@
                     width: 100%
         
         .buttons
+
+
             img
                 width: 1.5rem
                 margin: 0 .2rem
+                
+                &:hover
+                    filter: brightness(1.3)
     
     .settings
         display: flex
@@ -61,7 +67,7 @@
         display: flex
         align-items: center
         background-color: rgb(241, 240, 233)
-        padding: .5rem 0
+        padding: 1rem 0
         
         .backDiv, .frontDiv
             margin: 0 1rem
@@ -72,7 +78,13 @@
                 margin: 0 1rem 0 0
                 width: 2rem
 
+        .backDiv:hover
+
+            img
+                filter: contrast(1.3)
+
         .frontDiv
+            filter: grayscale(1)
             margin: 0 0 0 2rem
             border-right: solid 1px rgb(217, 211, 190)
 
