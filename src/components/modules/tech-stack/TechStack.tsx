@@ -8,6 +8,7 @@ import nestjs from "../../../assets/images/technologies/nestjs.png";
 import mysql from "../../../assets/images/technologies/mysql.png";
 import figma from "../../../assets/images/technologies/figma.png";
 import firebase from "../../../assets/images/technologies/firebase.png";
+import styles from "../../../styles/pages/AboutMeWindow.module.scss";
 
 const technologies = [
   javascript,
@@ -24,7 +25,7 @@ const technologies = [
 
 export function TechStack() {
   return (
-    <div className="technologies">
+    <div className={styles.technologies}>
       {technologies.map((src) => (
         <img src={src} />
       ))}

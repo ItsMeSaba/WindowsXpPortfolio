@@ -1,0 +1,25 @@
+.workExperiences {
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+
+  .workItem {
+    // width: 15rem
+    display: flex;
+    // flex-direction: column
+    justify-content: center;
+    align-items: center;
+    margin: 0 3rem 0 2rem;
+
+    p {
+      margin: 0 0 0 2rem;
+      width: fit-content;
+    }
+
+    img {
+      // margin: 0 0 1rem 0
+      width: 3rem;
+    }
+  }
+  // .workItem
+}

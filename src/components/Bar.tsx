@@ -1,4 +1,4 @@
-import "../styles/bar.sass";
+import styles from "../styles/bar.module.scss";
 import windowsLogoMini from "../assets/images/windowsLogoMini3.png";
 import folder from "../assets/images/icons/folder.ico";
 
@@ -12,18 +12,18 @@ export default function Bar(args: Args) {
   console.log("barItems", barItems);
 
   return (
-    <div className="bar">
-      <div className="startButton">
-        <div className="logo">
+    <div className={styles.bar}>
+      <div className={styles.startButton}>
+        <div className={styles.logo}>
           <img src={windowsLogoMini} alt="" />
         </div>
 
         <p>Start</p>
       </div>
 
-      <div className="barItems">
+      <div className={styles.barItems}>
         {barItems.map((item) => (
-          <div className="barItem" onClick={item.onClick}>
+          <div className={styles.barItem} onClick={item.onClick}>
             <img src={folder} alt="" />
 
             <p>{item.header}</p>

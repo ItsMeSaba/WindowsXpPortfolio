@@ -1,6 +1,6 @@
 import Window from "../components/Window";
 import { WindowSettings } from "../dataObjects";
-import "../styles/pages/AboutMeWindow.sass";
+import styles from "../styles/pages/AboutMeWindow.module.scss";
 // import { TechStack } from "@/components/modules/tech-stack/TechStack";
 import { TechStack } from "../components/modules/tech-stack/TechStack";
 
@@ -15,7 +15,7 @@ export default function AboutMeWindow(args: Args) {
 
   return (
     <Window settings={settings} setSettings={setSettings} hideControlls={true}>
-      <div className="aboutMeWindow">
+      <div className={styles.aboutMeWindow}>
         <p>I'm Saba</p>
 
         <p>

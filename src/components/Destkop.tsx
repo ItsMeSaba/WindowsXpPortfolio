@@ -1,16 +1,13 @@
-import "../styles/desktop.sass";
+import styles from "../styles/desktop.module.scss";
 import { useContext } from "react";
 import { GlobalContext } from "../context";
 import { WindowSettings } from "../dataObjects";
 
-import desktop from "../assets/images/icons/desktop.ico";
 import explorer from "../assets/images/icons/explorer.ico";
 import folder from "../assets/images/icons/folder.ico";
 import file from "../assets/images/icons/file.ico";
 import adobeFile from "../assets/images/icons/adobeFile.png";
-import contact from "../assets/images/icons/contact.ico";
-import Window from "./Window";
-import AboutMeWindow from "../pages/AboutMeWindow";
+
 // import file from "../../public/sabaSilagadze.pdf"
 
 interface Args {
@@ -52,13 +49,8 @@ export default function Desktop(args: Args) {
       ]);
   };
 
-  {
-    /* <DesktopItem image={desktop} text="My Computer" />
-    <DesktopItem image={explorer} text="Internet Explorer" /> */
-  }
-
   return (
-    <div className="desktop">
+    <div className={styles.desktop}>
       <div className="column">
         <DesktopItem
           image={folder}
@@ -76,7 +68,7 @@ export default function Desktop(args: Args) {
         />
         {/* <DesktopItem image={adobeFile} text="CV" onDoubleClick={() => fetch("../../public/sabaSilagadze.pdf")} /> */}
         <a
-          className="desktopItem"
+          className={styles.desktopItem}
           href="../../public/sabaSilagadze.pdf"
           target="_blank"
           download
@@ -120,7 +112,7 @@ function DesktopItem(args: DesktopItemArgs) {
   const { image, text, onDoubleClick } = args;
 
   return (
-    <div className="desktopItem" onDoubleClick={onDoubleClick}>
+    <div className={styles.desktopItem} onDoubleClick={onDoubleClick}>
       <img src={image} alt="" />
 
       <p>{text}</p>

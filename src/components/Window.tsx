@@ -1,4 +1,4 @@
-import "../styles/window.sass";
+import styles from "../styles/window.module.scss";
 import folder from "../assets/images/icons/folder.ico";
 import minimizeButton from "../assets/images/icons/minimize.png";
 import closeButton from "../assets/images/icons/close.png";
@@ -45,19 +45,19 @@ export default function Window(args: Args) {
     >
       <div
         ref={draggableRef}
-        className="window"
+        className={styles.window}
         style={{ zIndex: settings.zIndex, gridTemplateRows: windowGridStyle }}
       >
-        <div className="topHeader">
-          <div className="windowInfo">
-            <div className="folderIcon">
+        <div className={styles.topHeader}>
+          <div className={styles.windowInfo}>
+            <div className={styles.folderIcon}>
               <img src={folder} alt="" />
             </div>
 
             <p>{header}</p>
           </div>
 
-          <div className="buttons">
+          <div className={styles.buttons}>
             <img
               src={minimizeButton}
               alt=""
@@ -69,7 +69,7 @@ export default function Window(args: Args) {
           </div>
         </div>
 
-        <div className="settings">
+        <div className={styles.settings}>
           <p>File</p>
           <p>Edit</p>
           <p>View</p>
@@ -80,37 +80,37 @@ export default function Window(args: Args) {
 
         {!hideControlls && (
           <>
-            <div className="controlls">
-              <div className="backDiv" onClick={onBack}>
+            <div className={styles.controlls}>
+              <div className={styles.backDiv} onClick={onBack}>
                 <img src={back} alt="" />
 
                 <p>Back</p>
               </div>
 
-              <div className="frontDiv">
+              <div className={styles.frontDiv}>
                 <img src={front} alt="" />
 
                 {/* <p>Next</p> */}
               </div>
             </div>
 
-            <div className="address">
+            <div className={styles.address}>
               <p>Address</p>
 
-              <div className="inputBar">
+              <div className={styles.inputBar}>
                 <img src={folder} alt="" />
 
                 <p>C:/{path}</p>
               </div>
 
-              <div className="goButton">
+              <div className={styles.goButton}>
                 <img src={go} alt="" />
               </div>
             </div>
           </>
         )}
 
-        <div className="windowBody">{children}</div>
+        <div className={styles.windowBody}>{children}</div>
       </div>
     </Draggable>
   );

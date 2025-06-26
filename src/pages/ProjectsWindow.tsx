@@ -3,7 +3,7 @@ import Window from "../components/Window";
 import Project from "./view/Project";
 import { WindowSettings } from "../dataObjects";
 import { useState } from "react";
-import "../styles/pages/ProjectsWindow.sass";
+import styles from "../styles/pages/ProjectsWindow.module.scss";
 
 interface Args {
   // setPath: (newPath: string) => any;

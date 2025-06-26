@@ -3,7 +3,7 @@ import { WindowSettings } from "../dataObjects";
 import gmail from "../assets/images/contact/gmail.png";
 import upwork from "../assets/images/contact/upwork.png";
 import linkedin from "../assets/images/contact/linkedin.png";
-import "../styles/pages/ContactWindow.sass";
+import styles from "../styles/pages/ContactWindow.module.scss";
 
 interface Args {
   // setPath: (newPath: string) => any;
@@ -16,7 +16,7 @@ export default function ContactWindow(args: Args) {
 
   return (
     <Window settings={settings} setSettings={setSettings} hideControlls={true}>
-      <div className="contactWindow">
+      <div className={styles.contactWindow}>
         <a
           target="_blank"
           href="https://mail.google.com/mail/?view=cm&fs=1&to=sbsilagadze@gmail.com&su=I saw your portfolio"
@@ -35,7 +35,7 @@ export default function ContactWindow(args: Args) {
           target="_blank"
           href="https://www.linkedin.com/in/saba-silagadze-8164a31b0/"
         >
-          <img className="linkedin" src={linkedin} />
+          <img className={styles.linkedin} src={linkedin} />
         </a>
       </div>
     </Window>

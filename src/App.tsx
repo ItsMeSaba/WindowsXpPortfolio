@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import "./App.sass";
+import styles from "./App.module.scss";
 import Bar from "./components/Bar";
 import Desktop from "./components/Destkop";
 import { GlobalContext } from "./context";
@@ -59,29 +59,36 @@ function App() {
 
   if (loadedLevel === 1)
     return (
-      <div className="loadingScreenOne">
-        <img className="loadingWindowsLogo" src={loadingWindowsLogo} alt="" />
+      <div className={styles.loadingScreenOne}>
+        <img
+          className={styles.loadingWindowsLogo}
+          src={loadingWindowsLogo}
+          alt=""
+        />
         <audio src={startupSound} autoPlay></audio>
-        <img className="loadingBar" src={loadingBarGif} alt="" />
+        <img className={styles.loadingBar} src={loadingBarGif} alt="" />
       </div>
     );
 
   if (loadedLevel === 2)
     return (
-      <div className="loadingScreenTwo">
-        <div className="radialGradient"></div>
+      <div className={styles.loadingScreenTwo}>
+        <div className={styles.radialGradient}></div>
 
-        <div className="introduction">
+        <div className={styles.introduction}>
           {/* <img className="windowsLogo" src={windowsStartupLogo2} /> */}
-          <img className="windowsLogo" src={windowsStartupLogo2WhiteFont} />
+          <img
+            className={styles.windowsLogo}
+            src={windowsStartupLogo2WhiteFont}
+          />
 
           <p>To Begin, Click Your Username</p>
         </div>
 
-        <div className="line"></div>
+        <div className={styles.line}></div>
 
         <div
-          className="userProfile"
+          className={styles.userProfile}
           onClick={() => {
             setLoadedLevel(3);
             audio.play();
