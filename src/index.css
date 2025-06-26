@@ -16,9 +16,9 @@ body {
 		sans-serif; */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-image: url("./images/winxp.png");
+	background-image: url("./assets/images/winxp.png");
 	overflow: hidden;
-	cursor: url('./images/icons/mouse.png'), auto;
+	cursor: url('./assets/images/icons/mouse.png'), auto;
 	width: 100vw;
 	height: 100vh;
 }

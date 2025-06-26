@@ -1,50 +1,36 @@
 import Window from "../components/Window";
 import { WindowSettings } from "../dataObjects";
-import "../styles/pages/AboutMeWindow.sass"
-
-import typescript from "../images/technologies/ts.svg"
-import javascript from "../images/technologies/js.png"
-import nextjs from "../images/technologies/nextjs.png"
-import react from "../images/technologies/react.png"
-import node from "../images/technologies/node.png"
-import mongodb from "../images/technologies/mongodb.png"
-import nestjs from "../images/technologies/nestjs.png"
-import mysql from "../images/technologies/mysql.png"
-import figma from "../images/technologies/figma.png"
-import firebase from "../images/technologies/firebase.png"
-
-const technologies = [javascript, typescript, node, react, nextjs, nestjs, mongodb, mysql, firebase, figma,];
+import "../styles/pages/AboutMeWindow.sass";
+// import { TechStack } from "@/components/modules/tech-stack/TechStack";
+import { TechStack } from "../components/modules/tech-stack/TechStack";
 
 interface Args {
-    // setPath: (newPath: string) => any;
-    settings: WindowSettings,
-    setSettings: React.Dispatch<React.SetStateAction<WindowSettings>>
+  // setPath: (newPath: string) => any;
+  settings: WindowSettings;
+  setSettings: React.Dispatch<React.SetStateAction<WindowSettings>>;
 }
 
 export default function AboutMeWindow(args: Args) {
-    const { setSettings, settings } = args;
+  const { setSettings, settings } = args;
 
-    return (
-        <Window settings={settings} setSettings={setSettings} hideControlls={true}>
-            <div className="aboutMeWindow">
-                <p>I'm Saba</p>
+  return (
+    <Window settings={settings} setSettings={setSettings} hideControlls={true}>
+      <div className="aboutMeWindow">
+        <p>I'm Saba</p>
 
-                <p>Fullstack Javascript Developer</p>
-                
-                <p>Located in Georgia (Europe), Timezone GMT+4</p>
+        <p>
+          JavaScript engineer (React / Next.js, Node) with 4+ years building
+          production apps that load in under 1s and serve 100k+ monthly users. I
+          turn design hand-offs into accessible, high-performance interfaces
+          while owning back-end APIs when needed.
+        </p>
 
-                <p>Third Year of Writing Code</p>
+        <p>Located in Georgia (Europe), Timezone GMT+4.</p>
 
-                <p>One Year of Work Experience</p>
+        <p>Technology Stack:</p>
 
-                <p>Technology Stack:</p>
-
-                <div className="technologies">
-                    {
-                        technologies.map(src => <img  src={src} />)
-                    }
-                </div>
-            </div>
-        </Window>
-    )
+        <TechStack />
+      </div>
+    </Window>
+  );
 }
