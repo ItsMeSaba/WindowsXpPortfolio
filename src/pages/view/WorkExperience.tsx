@@ -25,9 +25,7 @@ export default function WorkExperience(args: Args) {
         </div>
       </div>
 
-      <div className="description">
-        <p>{description}</p>
-      </div>
+      <div className="description">{description}</div>
 
       <div className="images">
         <ImageGallery items={images.map((src) => ({ original: src }))} />
