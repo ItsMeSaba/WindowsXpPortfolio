@@ -1,21 +1,21 @@
 "use client";
 
+import { GlobalContext } from "@/contexts/context";
 import { useEffect, useState, useRef } from "react";
+import { projectsWindowSettings } from "@/dataObjects";
+import { DesktopApps } from "@/components/modules/DesktopApps";
+
 import styles from "@/App.module.scss";
 import Bar from "@/components/modules/Bar";
-import DesktopComponent from "@/components/modules/Desktop";
-import { GlobalContext } from "@/contexts/context";
-import { projectsWindowSettings } from "@/dataObjects";
-
-import ProjectsWindow from "@/components/windows/projects-window";
-import WorkExperienceWindow from "@/components/windows/experience-window";
-import loadingBarGif from "@/assets/images/loadingBar.gif";
-import loadingWindowsLogo from "@/assets/images/loadingWindowsLogo.png";
-import startupSound from "@/assets/images/startupSound.mp3";
-import windowsStartupLogo2WhiteFont from "@/assets/images/windowsStartupLogo2WhiteFontCropped.png";
 import chessImage from "@/assets/images/chessImage.webp";
+import startupSound from "@/assets/images/startupSound.mp3";
+import loadingBarGif from "@/assets/images/loadingBar.gif";
 import AboutMeWindow from "@/components/windows/about-window";
 import ContactWindow from "@/components/windows/contact-window";
+import loadingWindowsLogo from "@/assets/images/loadingWindowsLogo.png";
+import ProjectsWindow from "@/components/windows/projects-window";
+import WorkExperienceWindow from "@/components/windows/experience-window";
+import windowsStartupLogo2WhiteFont from "@/assets/images/windowsStartupLogo2WhiteFontCropped.png";
 
 export function Desktop() {
   const highestZindex = useRef(1);
@@ -127,7 +127,7 @@ export function Desktop() {
       }}
     >
       <div className="App">
-        <DesktopComponent />
+        <DesktopApps />
 
         <ProjectsWindow
           settings={projectsWindow}

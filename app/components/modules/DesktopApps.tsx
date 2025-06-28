@@ -1,14 +1,14 @@
-import styles from "@/styles/desktop.module.scss";
+import type { WindowSettings } from "@/dataObjects";
 import { useContext } from "react";
 import { GlobalContext } from "@/contexts/context";
-import type { WindowSettings } from "@/dataObjects";
 
-import explorer from "@/assets/images/icons/explorer.ico";
-import folder from "@/assets/images/icons/folder.ico";
 import file from "@/assets/images/icons/file.ico";
+import styles from "@/styles/desktop.module.scss";
+import folder from "@/assets/images/icons/folder.ico";
+import explorer from "@/assets/images/icons/explorer.ico";
 import adobeFile from "@/assets/images/icons/adobeFile.png";
 
-export default function Desktop() {
+export function DesktopApps() {
   const {
     setProjectsWindow,
     projectsWindow,
