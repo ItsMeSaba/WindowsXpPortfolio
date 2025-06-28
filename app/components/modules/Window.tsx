@@ -1,14 +1,15 @@
+import { GlobalContext } from "@/contexts/context";
+import type { WindowSettings } from "@/dataObjects";
+import { type RefObject, useContext, useRef } from "react";
+
+import Draggable from "react-draggable";
 import styles from "@/styles/window.module.scss";
-import folder from "@/assets/images/icons/folder.ico";
-import minimizeButton from "@/assets/images/icons/minimize.png";
-import closeButton from "@/assets/images/icons/close.png";
 import go from "@/assets/images/icons/go.png";
 import back from "@/assets/images/icons/back.png";
 import front from "@/assets/images/icons/front.png";
-import type { WindowSettings } from "@/dataObjects";
-import { GlobalContext } from "@/contexts/context";
-import { type RefObject, useContext, useRef } from "react";
-import Draggable from "react-draggable";
+import folder from "@/assets/images/icons/folder.ico";
+import closeButton from "@/assets/images/icons/close.png";
+import minimizeButton from "@/assets/images/icons/minimize.png";
 
 interface Args {
   children: any;
@@ -59,13 +60,18 @@ export default function Window(args: Args) {
 
           <div className={styles.buttons}>
             <img
+              className={styles.button}
               src={minimizeButton}
               alt=""
               onClick={() => setSettings((settings) => settings.minimize())}
             />
-            {/* <img src={maximize} alt="" /> */}
-            <img src={closeButton} alt="" onClick={close} />
-            {/* <img src={close} alt="" onClick={() => setSettings(settings => settings.close())}/> */}
+
+            <img
+              className={styles.button}
+              src={closeButton}
+              alt=""
+              onClick={close}
+            />
           </div>
         </div>
 
